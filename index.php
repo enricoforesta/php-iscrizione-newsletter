@@ -1,3 +1,19 @@
+<?php
+$email = isset($_GET["email"]) ? $_GET["email"] : null;
+
+
+function checkEmail($arg1)
+{
+
+    if (strpos($arg1, '.') !== false && strpos($arg1, '@') !== false) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+$check = $email ? checkEmail($email) : null;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +36,17 @@
             <input id="submit" type="submit" value="Login">
         </form>
     </div>
+    <?php if ($email === null || $email === '') : ?>
+        <h3>Inserisci le credenziali</h3>
+    <?php elseif ($check === true) : ?>
+        <div class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+        </div>
+    <?php elseif ($check === false) : ?>
+        <div class="alert alert-danger" role="alert">
+            A simple success alert—check it out!
+        </div>
+    <?php endif; ?>
 </body>
 
 </html>
