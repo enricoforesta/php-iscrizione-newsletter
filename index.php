@@ -1,16 +1,8 @@
 <?php
 $email = isset($_GET["email"]) ? $_GET["email"] : null;
 
+include __DIR__ . './function.php';
 
-function checkEmail($arg1)
-{
-
-    if (strpos($arg1, '.') !== false && strpos($arg1, '@') !== false) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 $check = $email ? checkEmail($email) : null;
 ?>
