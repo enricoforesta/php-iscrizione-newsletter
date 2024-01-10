@@ -30,13 +30,9 @@ $check = $email ? checkEmail($email) : null;
     </div>
     <?php if ($email === null || $email === '') : ?>
         <h3>Inserisci le credenziali</h3>
-    <?php elseif ($check === true) : ?>
-        <div class="alert alert-success" role="alert">
-            A simple success alert—check it out!
-        </div>
-    <?php elseif ($check === false) : ?>
-        <div class="alert alert-danger" role="alert">
-            A simple success alert—check it out!
+    <?php else : ?>
+        <div class="alert <?php echo $check === true ? 'alert-success' : 'alert-danger'; ?>" role="alert">
+            A simple alert—check it out!
         </div>
     <?php endif; ?>
 </body>
