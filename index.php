@@ -1,10 +1,11 @@
 <?php
-$email = isset($_GET["email"]) ? $_GET["email"] : null;
+$email = isset($_GET["email"]) ? $_GET["email"] : NULL;
+// var_dump($email);
 
-include __DIR__ . './function.php';
+require_once __DIR__ . './function.php';
 
 
-$check = $email ? checkEmail($email) : null;
+$check = $email ? checkEmail($email) : NULL;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +24,16 @@ $check = $email ? checkEmail($email) : null;
         <form class=" d-flex align-items-center justify-content-around " action="index.php" method="get">
             <div>
                 <label for="email">Inserisci la tua email</label><br>
-                <input type="text" id="email" name="email">
+                <input type="text" id="email" name="email" value="<?php echo $email ?>">
             </div>
             <input id="submit" type="submit" value="Login">
         </form>
     </div>
-    <?php if ($email === null || $email === '') : ?>
+    <?php if ($email === NULL || $email === '') : ?>
         <h3>Inserisci le credenziali</h3>
     <?php else : ?>
-        <div class="alert <?php echo $check === true ? 'alert-success' : 'alert-danger'; ?>" role="alert">
-            A simple alert—check it out!
+        <div class="alert <?php echo $check ? 'alert-success' : 'alert-danger'; ?>" role="alert">
+            <h3><?php echo $check ? 'Email Valida' : 'Email Non Valida'; ?></h3>
         </div>
     <?php endif; ?>
 </body>

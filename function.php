@@ -1,10 +1,15 @@
 <?php
+// function checkEmail($arg1)
+// {
+
+//     if (str_contains($arg1, '.')  && str_contains($arg1, '@') ) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 function checkEmail($arg1)
 {
 
-    if (strpos($arg1, '.') !== false && strpos($arg1, '@') !== false) {
-        return true;
-    } else {
-        return false;
-    }
+    return str_contains($arg1, '.') && str_contains($arg1, '@');
 }
